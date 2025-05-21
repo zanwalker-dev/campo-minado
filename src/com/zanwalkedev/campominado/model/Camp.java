@@ -12,10 +12,14 @@ public class Camp {
     private boolean opened; //false por padrão
     private boolean marked;
 
-    private List<Camp> adjacent = new ArrayList<>();
+    private List<Camp> adjacentList = new ArrayList<>();
 
     Camp(int line, int column){
         this.line = line;
         this.column = column;
+    }
+
+    boolean addAdjacent(Camp adjacent){
+        return adjacentList.add(adjacent);
     }
 }
