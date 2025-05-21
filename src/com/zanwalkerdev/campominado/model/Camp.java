@@ -1,5 +1,7 @@
 package com.zanwalkerdev.campominado.model;
 
+import com.zanwalkerdev.campominado.exceptions.ExplosionException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,21 +44,33 @@ public class Camp {
         }
     }
 
-    /* Logica para alternar campo aberto/maracado: */
+    /* Logica para proteger campo marcado */
     void toggleMark(){
         if(!opened){
             marked = !marked;
         }
     }
 
+    /* Logica para abrir campo */
     boolean open(){
         if(!opened && !marked){
             opened = true;
 
             if(mined){
-
+                throw new ExplosionException();
             }
+
+            if(adjacentSafe()){
+                adjacentList.forEach(v -> v.open());
+            }
+            return true;
+        } else {
+            return false;
         }
-        return false;
+    }
+
+    /* Verifica se um campo adjacente é seguro*/
+    boolean adjacentSafe(){
+       return adjacentList.stream().noneMatch(a -> a.mined);
     }
 }
