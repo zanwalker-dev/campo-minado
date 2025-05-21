@@ -20,6 +20,23 @@ public class Camp {
     }
 
     boolean addAdjacent(Camp adjacent){
-        return adjacentList.add(adjacent);
+
+        boolean lineDiff = line != adjacent.line;
+        boolean columnDiff = column != adjacent.column;
+        boolean diagonal = lineDiff && columnDiff;
+
+        int detlaLine = Math.abs(line - adjacent.line);
+        int detlaColumn = Math.abs(column - adjacent.column);
+        int deltaGeral = detlaLine + detlaColumn;
+
+        if(deltaGeral == 1 && !diagonal){
+            adjacentList.add(adjacent);
+            return true;
+        } else if(deltaGeral == 2 && diagonal){
+            adjacentList.add(adjacent);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
