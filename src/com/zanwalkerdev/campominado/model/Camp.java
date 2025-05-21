@@ -1,4 +1,4 @@
-package com.zanwalkedev.campominado.model;
+package com.zanwalkerdev.campominado.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ public class Camp {
 
     private List<Camp> adjacentList = new ArrayList<>();
 
-    Camp(int line, int column){
+    public Camp(int line, int column){
         this.line = line;
         this.column = column;
     }
