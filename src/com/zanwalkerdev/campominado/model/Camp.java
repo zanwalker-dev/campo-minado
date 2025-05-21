@@ -19,6 +19,8 @@ public class Camp {
         this.column = column;
     }
 
+    /* Logica para adicionar vizinhos, para vizinhos na horizontal e vertical o valor
+    absoluto deve ser 1 para vizinhos na diagonal o valor absoluto deverá ser 0 */
     boolean addAdjacent(Camp adjacent){
 
         boolean lineDiff = line != adjacent.line;
@@ -38,5 +40,23 @@ public class Camp {
         } else {
             return false;
         }
+    }
+
+    /* Logica para alternar campo aberto/maracado: */
+    void toggleMark(){
+        if(!opened){
+            marked = !marked;
+        }
+    }
+
+    boolean open(){
+        if(!opened && !marked){
+            opened = true;
+
+            if(mined){
+
+            }
+        }
+        return false;
     }
 }
