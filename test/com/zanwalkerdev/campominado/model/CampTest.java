@@ -16,44 +16,44 @@ public class CampTest {
     }
 
     @Test
-    void testAdjascentRange1Left(){
-        Camp adjascent = new Camp(3,2);
-        boolean result = camp.addAdjacent(adjascent);
+    void testAdjacentRange1Left(){
+        Camp adjacent = new Camp(3,2);
+        boolean result = camp.addAdjacent(adjacent);
         assertTrue(result);
     }
 
     @Test
-    void testAdjascentRange1Right(){
-        Camp adjascent = new Camp(3,4);
-        boolean result = camp.addAdjacent(adjascent);
+    void testAdjacentRange1Right(){
+        Camp adjacent = new Camp(3,4);
+        boolean result = camp.addAdjacent(adjacent);
         assertTrue(result);
     }
 
     @Test
-    void testAdjascentRange1Top(){
-        Camp adjascent = new Camp(2,3);
-        boolean result = camp.addAdjacent(adjascent);
+    void testAdjacentRange1Top(){
+        Camp adjacent = new Camp(2,3);
+        boolean result = camp.addAdjacent(adjacent);
         assertTrue(result);
     }
 
     @Test
-    void testAdjascentRange1Down(){
-        Camp adjascent = new Camp(4,3);
-        boolean result = camp.addAdjacent(adjascent);
+    void testAdjacentRange1Down(){
+        Camp adjacent = new Camp(4,3);
+        boolean result = camp.addAdjacent(adjacent);
         assertTrue(result);
     }
 
     @Test
-    void testAdjascentRange2(){
-        Camp adjascent = new Camp(2,2);
-        boolean result = camp.addAdjacent(adjascent);
+    void testAdjacentRange2(){
+        Camp adjacent = new Camp(2,2);
+        boolean result = camp.addAdjacent(adjacent);
         assertTrue(result);
     }
 
     @Test
-    void testNotAdjascent(){
-        Camp adjascent = new Camp(1,4);
-        boolean result = camp.addAdjacent(adjascent);
+    void testNotAdjacent(){
+        Camp adjacent = new Camp(1,4);
+        boolean result = camp.addAdjacent(adjacent);
         assertFalse(result);
     }
 
