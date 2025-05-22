@@ -125,7 +125,7 @@ public class Camp {
         } else if(opened) {
             return " ";
         } else {
-            return "~";
+            return "#";
         }
     }
 }
