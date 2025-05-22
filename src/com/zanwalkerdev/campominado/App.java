@@ -7,7 +7,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        Board board = new Board(8, 8, 6);
+        Board board = new Board(7, 9, 6);
         new ConsoleBoard(board);
 
     }

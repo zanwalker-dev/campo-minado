@@ -63,9 +63,9 @@ public class Board {
         Predicate<Camp> mined = c -> c.isMined();
 
         do{
-            armedMines = camps.stream().filter(mined).count();
             int random = (int) (Math.random() * camps.size());
             camps.get(random).toMine();
+            armedMines = camps.stream().filter(mined).count();
         } while (armedMines < this.mines);
     }
 
@@ -81,9 +81,19 @@ public class Board {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append(" ");
+        sb.append(" ");
+        for(int c = 0; c < columns; c++){
+            sb.append(" ");
+            sb.append(c);
+            sb.append(" ");
+        }
+        sb.append("\n");
 
         int i = 0;
         for(int line = 0; line < this.lines; line++){
+            sb.append(line);
+            sb.append(" ");
             for(int column = 0; column < this.columns; column++){
                 sb.append(" ");
                 sb.append(camps.get(i));
