@@ -73,4 +73,16 @@ public class Camp {
     boolean adjacentSafe(){
        return adjacentList.stream().noneMatch(a -> a.mined);
     }
+
+    void toMine(){
+        mined = true;
+    }
+
+    public boolean isMarked(){
+        return marked;
+    }
+
+    public boolean isOpened(){
+        return opened;
+    }
 }
