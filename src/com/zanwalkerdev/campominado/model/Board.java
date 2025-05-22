@@ -2,6 +2,7 @@ package com.zanwalkerdev.campominado.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 
 public class Board {
@@ -39,6 +40,24 @@ public class Board {
     }
 
     private void drawMines() {
+        long armedMines = 0;
+        Predicate<Camp> mined = c -> c.isMined();
+
+        do{
+            armedMines = camps.stream().filter(mined).count();
+            int random = (int) (Math.random() * camps.size());
+            camps.get(random).toMine();
+        } while (armedMines < this.mines);
     }
+
+    public boolean objectiveAchieved(){
+        return camps.stream().allMatch(c -> c.objectiveAchieved());
+    }
+
+    public void resetGame(){
+        camps.stream().forEach(c -> c.reset());
+        drawMines();
+    }
+
 
 }
