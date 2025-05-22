@@ -85,4 +85,43 @@ public class Camp {
     public boolean isOpened(){
         return opened;
     }
+
+    public int getLine() {
+        return line;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    boolean objectiveAchieved(){
+        boolean unveiled = !mined && opened;
+        boolean safe = mined && marked;
+        return unveiled || safe;
+    }
+
+    long minesAdjacent(){
+        return  adjacentList.stream().filter(a -> a.mined).count();
+    }
+
+    void reset() {
+        opened = false;
+        mined = false;
+        marked = false;
+    }
+
+    @Override
+    public String toString() {
+        if(marked){
+            return "P";
+        } else if( opened && mined){
+            return "*";
+        } else if(opened && minesAdjacent() > 0){
+            return Long.toString(minesAdjacent());
+        } else if(opened) {
+            return " ";
+        } else {
+            return "~";
+        }
+    }
 }
