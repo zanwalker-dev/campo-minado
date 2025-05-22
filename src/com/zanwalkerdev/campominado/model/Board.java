@@ -23,6 +23,16 @@ public class Board {
         drawMines();
     }
 
+    public void open(int line, int column) {
+        camps.stream().filter(c -> c.getLine() == line && c.getColumn() == column)
+                .findFirst().ifPresent(c -> {c.open();});
+    }
+
+    public void toggleMark(int line, int column) {
+        camps.stream().filter(c -> c.getLine() == line && c.getColumn() == column)
+                .findFirst().ifPresent(c -> {c.toggleMark();});
+    }
+
     private void generateCamps() {
         for (int line = 0; line < this.lines; line++) {
             for (int column = 0; column < this.columns; column++) {
