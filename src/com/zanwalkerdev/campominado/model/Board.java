@@ -81,8 +81,7 @@ public class Board {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(" ");
-        sb.append(" ");
+        sb.append("  ");
         for(int c = 0; c < columns; c++){
             sb.append(" ");
             sb.append(c);
