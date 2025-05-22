@@ -14,7 +14,7 @@ public class Camp {
     private boolean opened; //false por padrão
     private boolean marked;
 
-    private List<Camp> adjacentList = new ArrayList<>();
+    private final List<Camp> adjacentList = new ArrayList<>();
 
     public Camp(int line, int column){
         this.line = line;
@@ -61,7 +61,7 @@ public class Camp {
             }
 
             if(adjacentSafe()){
-                adjacentList.forEach(v -> v.open());
+                adjacentList.forEach(Camp::open);
             }
             return true;
         } else {
