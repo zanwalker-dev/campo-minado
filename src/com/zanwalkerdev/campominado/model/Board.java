@@ -59,5 +59,21 @@ public class Board {
         drawMines();
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
 
+        int i = 0;
+        for(int line = 0; line < this.lines; line++){
+            for(int column = 0; column < this.columns; column++){
+                sb.append(" ");
+                sb.append(camps.get(i));
+                sb.append(" ");
+                i++;
+            }
+            sb.append("\n");
+        }
+
+        return sb.toString();
+    }
 }
