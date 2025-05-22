@@ -1,5 +1,8 @@
 package com.zanwalkerdev.campominado.model;
 
+import com.zanwalkerdev.campominado.exceptions.ExplosionException;
+import com.zanwalkerdev.campominado.exceptions.QuitException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -24,8 +27,14 @@ public class Board {
     }
 
     public void open(int line, int column) {
-        camps.stream().filter(c -> c.getLine() == line && c.getColumn() == column)
-                .findFirst().ifPresent(c -> {c.open();});
+        try {
+            camps.stream().filter(c -> c.getLine() == line && c.getColumn() == column)
+                    .findFirst().ifPresent(c -> {c.open();});
+        } catch (ExplosionException e) {
+            camps.forEach(c -> c.setOpened(true));
+
+            throw e;
+        }
     }
 
     public void toggleMark(int line, int column) {

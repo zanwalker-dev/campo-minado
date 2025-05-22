@@ -78,6 +78,10 @@ public class Camp {
         mined = true;
     }
 
+    void setOpened(boolean opened) {
+        this.opened = opened;
+    }
+
     public boolean isMined() {
         return mined;
     }
